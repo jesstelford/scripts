@@ -2,6 +2,10 @@
 
 ## [Unreleased][]
 
+### Updated
+
+- `README.md` has a better description of setup
+
 ## [1.0.0][] - 2018-04-17
 
 ### Added

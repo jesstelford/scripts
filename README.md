@@ -4,6 +4,12 @@
 yarn add @jesstelford/scripts
 ```
 
+Should also add `husky` and `lint-staged` if you want pre-commit awesomeness:
+
+```
+yarn add husky@next lint-staged
+```
+
 Add the following to `package.json`:
 
 ```json
