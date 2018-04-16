@@ -1,5 +1,5 @@
 import sourceFiles from '../../source-files';
-import { executor } from '../../execute';
+import executor from '../../executor';
 
 export default (file) => {
   const thingsToLint = sourceFiles(file);

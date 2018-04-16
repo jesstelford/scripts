@@ -1,4 +1,4 @@
-import { executor } from '../../execute';
+import executor from '../../executor';
 
 const path = require('path');
 

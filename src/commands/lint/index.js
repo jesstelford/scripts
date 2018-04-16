@@ -1,10 +1,12 @@
 import sourceFiles from '../../source-files';
-import execute from '../../execute';
+import executor from '../../executor';
 
 export default (file) => {
   const thingsToLint = sourceFiles(file);
 
   console.log('linting', thingsToLint);
 
-  execute('eslint', [thingsToLint]);
+  executor()
+    .command('eslint', [thingsToLint])
+    .run();
 };

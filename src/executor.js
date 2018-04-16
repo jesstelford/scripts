@@ -2,33 +2,7 @@ const execa = require('execa');
 const npmRunPath = require('npm-run-path');
 const pMapSeries = require('p-map-series');
 
-const noop = () => {};
-
-export default (command, args, opts = {}, done = noop) => {
-  let execaOutput;
-  return execa(command, args, {
-    // Simulate running this command from within an npm script
-    env: npmRunPath.env(),
-    stdio: 'inherit',
-    ...opts,
-  })
-    .then((result) => {
-      execaOutput = result;
-      return done(null, result);
-    })
-    .catch((error) => {
-      execaOutput = error;
-      return done(error);
-    })
-    .then(() => {
-      process.exit(execaOutput.code);
-    })
-    .catch(() => {
-      process.exit(execaOutput.code);
-    });
-};
-
-export const executor = () => {
+export default () => {
   const commands = [];
   let mutableIndex;
   const context = {
