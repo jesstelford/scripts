@@ -14,15 +14,15 @@
     "source": "src/**/*.{js,jsx,ts}"
   },
   "scripts": {
-    "test-lint": "./dist/index.js lint",
+    "test-lint": "./dist/index.js lint list",
     "build": "microbundle",
     "dev": "microbundle watch",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
     "lint": "prettier-eslint --single-quote --trailing-comma es5",
     "lint:all": "eslint \"$npm_package_config_code\"",
-    "lint:check": "echo '\nLint errors found. To fix, execute: npm run lint:fix <file>' && npm run --silent lint -- --list-different --log-level silent",
-    "lint:fix": "npm run lint -- --write",
-    "lint:fix:all": "npm run lint:fix -- \"$npm_package_config_code\"",
+    "lint:check": "./dist/index.js lint list",
+    "lint:fix": "./dist/index.js lint fix",
+    "lint:fix:all": "./dist/index.js lint fix -- \"$npm_package_config_code\"",
     "precommit": "lint-staged"
   },
   "dependencies": {
