@@ -14,13 +14,10 @@
     "source": "src/**/*.{js,jsx,ts}"
   },
   "scripts": {
-    "test-lint": "./dist/index.js lint list",
     "build": "microbundle",
     "dev": "microbundle watch",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
-    "lint": "prettier-eslint --single-quote --trailing-comma es5",
-    "lint:all": "eslint \"$npm_package_config_code\"",
-    "lint:check": "./dist/index.js lint list",
+    "lint": "./dist/index.js lint",
     "lint:fix": "./dist/index.js lint fix",
     "lint:fix:all": "./dist/index.js lint fix -- \"$npm_package_config_code\"",
     "precommit": "lint-staged"
@@ -40,6 +37,7 @@
     "npm-run-path": "^2.0.2",
     "prettier": "1.11.1",
     "prettier-eslint-cli": "^4.7.1",
+    "read-pkg-up": "^3.0.0",
     "sade": "^1.4.0",
     "version-changelog": "^3.1.0"
   },
@@ -76,7 +74,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts}": [
-      "npm run --silent lint:check"
+      "./dist/index.js lint list"
     ]
   }
 }

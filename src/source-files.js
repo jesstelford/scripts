@@ -1,4 +1,5 @@
 const isValidGlob = require('is-valid-glob');
+const readPkgUp = require('read-pkg-up');
 
 export default (file) => {
   let thingsToLint = file;
@@ -7,9 +8,16 @@ export default (file) => {
     thingsToLint = process.env.npm_package_config_source;
 
     if (!thingsToLint) {
-      // eslint-disable-next-line no-console
-      console.error('Must specify either a file, or config.source in package.json');
-      process.exit(1);
+      // Try to find package.json nearest to where the command is being executed
+      const { pkg } = readPkgUp.sync();
+
+      if (!pkg || !pkg.config || !pkg.config.source) {
+        // eslint-disable-next-line no-console
+        console.error('Must specify either a file, or config.source in package.json');
+        process.exit(1);
+      }
+
+      thingsToLint = pkg.config.source;
     }
   }
 
