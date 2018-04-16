@@ -1,0 +1,82 @@
+{
+  "name": "@jesstelford/scripts",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.m.js",
+  "source": "src/index.js",
+  "bin": {
+    "jesstelford-scripts": "dist/index.js"
+  },
+  "license": "MIT",
+  "author": "Jess Telford <hi+npm@jes.st>",
+  "config": {
+    "source": "src/**/*.{js,jsx,ts}"
+  },
+  "scripts": {
+    "test-lint": "./dist/index.js lint",
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
+    "lint": "prettier-eslint --single-quote --trailing-comma es5",
+    "lint:all": "eslint \"$npm_package_config_code\"",
+    "lint:check": "echo '\nLint errors found. To fix, execute: npm run lint:fix <file>' && npm run --silent lint -- --list-different --log-level silent",
+    "lint:fix": "npm run lint -- --write",
+    "lint:fix:all": "npm run lint:fix -- \"$npm_package_config_code\"",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "babel-eslint": "^8.2.2",
+    "changelog-verify": "^1.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "execa": "^0.10.0",
+    "husky": "0.15.0-rc.13",
+    "is-valid-glob": "^1.0.0",
+    "lint-staged": "^7.0.0",
+    "npm-run-path": "^2.0.2",
+    "prettier": "1.11.1",
+    "prettier-eslint-cli": "^4.7.1",
+    "sade": "^1.4.0",
+    "version-changelog": "^3.1.0"
+  },
+  "devDependencies": {
+    "microbundle": "^0.4.4"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "object-curly-newline": "off",
+      "function-paren-newline": "off",
+      "template-curly-spacing": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts}": [
+      "npm run --silent lint:check"
+    ]
+  }
+}
