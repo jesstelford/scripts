@@ -16,6 +16,14 @@
         ]
       }
     ],
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['to'],
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
+      }
+    ],
     "object-curly-newline": "off",
     "function-paren-newline": "off",
     "template-curly-spacing": "off"

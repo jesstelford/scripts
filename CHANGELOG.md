@@ -5,6 +5,7 @@
 ### Updated
 
 - `README.md` has a better description of setup
+- Added fix for React Router `to` throwing jsx-a11y errors ([airbnb/javascript#1648](https://github.com/airbnb/javascript/pull/1648))
 
 ## [1.0.0][] - 2018-04-17
 

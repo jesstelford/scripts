@@ -35,6 +35,12 @@ Add the following to `package.json`:
 }
 ```
 
+For editor/tooling to support linting, you'll want to run:
+
+```bash
+ln -s ./node_modules/@jesstelford/scripts/.eslintrc .eslintrc
+```
+
 ## Usage
 
 ```
