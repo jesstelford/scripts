@@ -1,5 +1,6 @@
 import sourceFiles from '../../source-files';
 import executor from '../../executor';
+import { eslintOptions } from '../../config';
 
 export default (file) => {
   const thingsToLint = sourceFiles(file);
@@ -7,6 +8,6 @@ export default (file) => {
   console.log('linting', thingsToLint);
 
   executor()
-    .command('eslint', [thingsToLint])
+    .command('eslint', [...eslintOptions, thingsToLint])
     .run();
 };
