@@ -2,6 +2,8 @@
 
 ## [Unreleased][]
 
+## [1.0.1][] - 2018-04-17
+
 ### Updated
 
 - `README.md` has a better description of setup
@@ -18,5 +20,6 @@
 - `jesstelford-scripts version`
 
 
-[Unreleased]: https://github.com/jesstelford/scripts/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/jesstelford/scripts/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/jesstelford/scripts/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jesstelford/scripts/tree/v1.0.0
