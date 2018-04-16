@@ -8,6 +8,9 @@
   "bin": {
     "jesstelford-scripts": "dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "author": "Jess Telford <hi+npm@jes.st>",
   "config": {
