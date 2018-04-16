@@ -1,24 +1,18 @@
 import sourceFiles from '../../source-files';
-import execute from '../../execute';
+import { executor } from '../../execute';
 
 export default (file) => {
   const thingsToLint = sourceFiles(file);
 
-  execute(
-    'prettier-eslint',
-    [
+  executor()
+    .command('prettier-eslint', [
       '--single-quote',
       '--trailing-comma=es5',
       '--list-different',
       '--log-level=silent',
       thingsToLint,
-    ],
-    {
-      stdio: 'pipe',
-    },
-    (error, result) => {
-      const { stdout, stderr } = error || result;
-
+    ])
+    .onError(({ stdout, stderr }) => {
       // Something went wrong with executing eslint/prettier
       if (stderr) {
         console.error(stderr);
@@ -37,6 +31,6 @@ export default (file) => {
         console.log(files.join('\n'));
         console.log('\n');
       }
-    },
-  );
+    })
+    .run();
 };
