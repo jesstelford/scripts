@@ -16,10 +16,9 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
+    "version": "./dist/index.js version",
     "lint": "./dist/index.js lint",
     "lint:fix": "./dist/index.js lint fix",
-    "lint:fix:all": "./dist/index.js lint fix -- \"$npm_package_config_code\"",
     "precommit": "lint-staged"
   },
   "dependencies": {
@@ -35,6 +34,7 @@
     "is-valid-glob": "^1.0.0",
     "lint-staged": "^7.0.0",
     "npm-run-path": "^2.0.2",
+    "p-map-series": "^1.0.0",
     "prettier": "1.11.1",
     "prettier-eslint-cli": "^4.7.1",
     "read-pkg-up": "^3.0.0",

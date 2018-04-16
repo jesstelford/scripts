@@ -3,6 +3,7 @@
 import lint from './commands/lint';
 import lintFix from './commands/lint/fix';
 import lintList from './commands/lint/list';
+import versionCommand from './commands/version';
 
 const sade = require('sade');
 
@@ -48,5 +49,13 @@ prog
   .example('lint list src/index.js      # execute on a single file')
   .example('lint list {src,lib}/**/*.js # execute on all .js files in src/ and lib/')
   .action(lintList);
+
+prog
+  .command('version')
+  .describe([
+    'Verify, update and commit CHANGELOG.md',
+    'Runs: `version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md`',
+  ])
+  .action(versionCommand);
 
 prog.parse(process.argv);
