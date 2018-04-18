@@ -19,9 +19,10 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "version": "./dist/index.js version",
-    "lint": "./dist/index.js lint",
-    "lint:fix": "./dist/index.js lint fix",
+    "preversion": "npm run build",
+    "version": "node ./dist/index.js version",
+    "lint": "node ./dist/index.js lint",
+    "lint:fix": "node ./dist/index.js lint fix",
     "precommit": "lint-staged"
   },
   "dependencies": {

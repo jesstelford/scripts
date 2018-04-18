@@ -2,6 +2,11 @@
 
 ## [Unreleased][]
 
+### Fixed
+
+- Build before publishing
+- Don't publish source
+
 ## [1.0.4][] - 2018-04-18
 
 ### Enhanced
