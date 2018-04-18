@@ -2,6 +2,10 @@
 
 ## [Unreleased][]
 
+### Fixed
+
+- Output of `lint list` was incorrect
+
 ## [1.0.1][] - 2018-04-17
 
 ### Updated

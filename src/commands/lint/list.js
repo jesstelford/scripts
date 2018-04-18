@@ -6,12 +6,11 @@ export default (file) => {
   const thingsToLint = sourceFiles(file);
 
   executor()
-    .command('prettier-eslint', [
-      ...prettierOptions,
-      '--list-different',
-      '--log-level=silent',
-      thingsToLint,
-    ])
+    .command(
+      'prettier-eslint',
+      [...prettierOptions, '--list-different', '--log-level=silent', thingsToLint],
+      { stdio: 'pipe' },
+    )
     .onError(({ stdout, stderr }) => {
       // Something went wrong with executing eslint/prettier
       if (stderr) {
@@ -26,10 +25,12 @@ export default (file) => {
         .map(line => `🛠  ${line}`);
 
       if (files.length) {
-        console.log('\n');
-        console.log(`Found ${files.length} file${files.length > 1 ? 's' : ''} that can be fixed:`);
-        console.log(files.join('\n'));
-        console.log('\n');
+        console.error('\n');
+        console.error(
+          `Found ${files.length} file${files.length > 1 ? 's' : ''} that can be fixed:`,
+        );
+        console.error(files.join('\n'));
+        console.error('\n');
       }
     })
     .run();
