@@ -2,6 +2,10 @@
 
 ## [Unreleased][]
 
+### Enhanced
+
+- Prettify the path output of lint list command
+
 ## [1.0.3][] - 2018-04-18
 
 ### Fixed

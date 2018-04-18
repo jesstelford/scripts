@@ -18,10 +18,15 @@ export default (file, { _: unknownArgs }) => {
         return;
       }
 
+      const cwd = process.cwd();
+
       // Extract the list of files
       const files = stdout
         .split('\n')
         .filter(Boolean)
+        // Prettify the path
+        .map(line => (line.startsWith(cwd) ? `.${line.slice(cwd.length)}` : line))
+        // Emojis, because.
         .map(line => `🛠  ${line}`);
 
       if (files.length) {
