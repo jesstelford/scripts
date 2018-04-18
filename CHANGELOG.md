@@ -2,6 +2,11 @@
 
 ## [Unreleased][]
 
+### Fixed
+
+- Support list of individual files/dirs for linting commands
+  - This adds support for `lint-staged`
+
 ## [1.0.2][] - 2018-04-18
 
 ### Fixed

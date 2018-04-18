@@ -2,13 +2,13 @@ import sourceFiles from '../../source-files';
 import executor from '../../executor';
 import { prettierOptions } from '../../config';
 
-export default (file) => {
-  const thingsToLint = sourceFiles(file);
+export default (file, { _: unknownArgs }) => {
+  const thingsToLint = sourceFiles([file].concat(unknownArgs));
 
   executor()
     .command(
       'prettier-eslint',
-      [...prettierOptions, '--list-different', '--log-level=silent', thingsToLint],
+      [...prettierOptions, '--list-different', '--log-level=silent', ...thingsToLint],
       { stdio: 'pipe' },
     )
     .onError(({ stdout, stderr }) => {
