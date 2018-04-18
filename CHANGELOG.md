@@ -2,6 +2,8 @@
 
 ## [Unreleased][]
 
+## [1.0.4][] - 2018-04-18
+
 ### Enhanced
 
 - Prettify the path output of lint list command
@@ -37,7 +39,8 @@
 - `jesstelford-scripts version`
 
 
-[Unreleased]: https://github.com/jesstelford/scripts/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/jesstelford/scripts/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/jesstelford/scripts/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/jesstelford/scripts/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jesstelford/scripts/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/jesstelford/scripts/compare/v1.0.0...v1.0.1
